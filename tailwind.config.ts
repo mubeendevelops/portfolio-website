@@ -27,6 +27,9 @@ const config: Config = {
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
         sans: ['var(--font-sans)', 'ui-sans-serif', 'sans-serif'],
       },
+      transitionDuration: {
+        micro: 'var(--trace-duration-micro)',
+      },
     },
   },
   plugins: [],

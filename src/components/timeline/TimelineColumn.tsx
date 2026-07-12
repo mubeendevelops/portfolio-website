@@ -8,7 +8,9 @@ interface Props {
 export function TimelineColumn({ column }: Props) {
   return (
     <div className="rounded-md border border-trace-border bg-trace-surface p-5">
-      <h3 className="font-mono text-xs uppercase tracking-widest text-trace-meta">{column.heading}</h3>
+      <h3 className="font-mono text-xs uppercase tracking-widest text-trace-meta">
+        {column.heading}
+      </h3>
       {column.items.length === 0 ? (
         column.emptyNote !== null && (
           <p className="mt-4 text-sm text-trace-text-muted">{column.emptyNote}</p>

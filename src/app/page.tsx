@@ -8,6 +8,7 @@ import { StackGroup } from '@/components/stack/StackGroup';
 import { TimelineColumn } from '@/components/timeline/TimelineColumn';
 import { TraceHero } from '@/components/trace/TraceHero';
 import { Button } from '@/components/ui/Button';
+import { CopyButton } from '@/components/ui/CopyButton';
 import { PROFILE } from '@/content/profile';
 import { SITE } from '@/content/site';
 import { STACK_GROUPS } from '@/content/stack';
@@ -23,7 +24,9 @@ export default function Page() {
     { href: PROFILE.links.github, label: SITE.contactLinks.github, external: true },
     { href: PROFILE.links.linkedin, label: SITE.contactLinks.linkedin, external: true },
     { href: PROFILE.links.resume, label: SITE.contactLinks.resume, external: false },
-  ].filter((link): link is { href: string; label: string; external: boolean } => link.href !== null);
+  ].filter(
+    (link): link is { href: string; label: string; external: boolean } => link.href !== null,
+  );
 
   return (
     <>
@@ -52,13 +55,20 @@ export default function Page() {
         </Section>
         <Section id="contact" title={SITE.sections.contact}>
           <p className="max-w-xl text-base leading-relaxed text-trace-text">{SITE.contactIntro}</p>
-          {directLinks.length > 0 && (
+          {(directLinks.length > 0 || PROFILE.links.email !== null) && (
             <div className="mt-6 flex flex-wrap gap-3">
               {directLinks.map((link) => (
                 <Button key={link.label} variant="ghost" href={link.href} external={link.external}>
                   {link.label}
                 </Button>
               ))}
+              {PROFILE.links.email !== null && (
+                <CopyButton
+                  value={PROFILE.links.email}
+                  label={SITE.contactLinks.copyEmail}
+                  copiedLabel={SITE.contactLinks.copyEmailDone}
+                />
+              )}
             </div>
           )}
           <div className="mt-8">

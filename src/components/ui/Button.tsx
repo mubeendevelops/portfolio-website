@@ -11,7 +11,8 @@ interface Props {
 
 const VARIANT_CLASSES: Record<Props['variant'], string> = {
   primary: 'bg-trace-accent text-trace-bg hover:bg-trace-accent-dim',
-  ghost: 'border border-trace-border text-trace-text hover:border-trace-meta hover:bg-trace-surface-hover',
+  ghost:
+    'border border-trace-border text-trace-text hover:border-trace-meta hover:bg-trace-surface-hover',
 };
 
 export function Button({
@@ -23,11 +24,15 @@ export function Button({
   disabled = false,
   onClick,
 }: Props) {
-  const classes = `inline-flex min-h-11 items-center justify-center rounded-md px-4 font-mono text-sm ${VARIANT_CLASSES[variant]}`;
+  const classes = `inline-flex min-h-11 items-center justify-center rounded-md px-4 font-mono text-sm transition-colors duration-micro ${VARIANT_CLASSES[variant]}`;
 
   if (href !== undefined) {
     return (
-      <a href={href} className={classes} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+      <a
+        href={href}
+        className={classes}
+        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
         {children}
       </a>
     );

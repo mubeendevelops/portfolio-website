@@ -73,6 +73,8 @@ export interface ContactLinkLabels {
   github: string;
   linkedin: string;
   resume: string;
+  copyEmail: string;
+  copyEmailDone: string;
 }
 
 export interface FormCopy {
@@ -85,7 +87,7 @@ export interface FormCopy {
   errorWithEmail: string;
   /** Error shown while profile links are still null. */
   errorWithoutEmail: string;
-  /** Form service URL (Formspree/Web3Forms, wired in Milestone 2). */
+  /** Form service URL (Formspree/Web3Forms). null → form errors with the direct-email fallback. */
   endpoint: string | null;
 }
 
@@ -93,6 +95,15 @@ export interface ResponseCardCopy {
   statusLine: string;
   heading: string;
   body: string;
+}
+
+export interface NotFoundCopy {
+  code: string;
+  /** The themed headline — trace flavor lives here, not in the CTA. */
+  message: string;
+  /** Plain-English explanation for visitors who don't speak trace. */
+  body: string;
+  linkLabel: string;
 }
 
 /** Every visitor-facing string that isn't profile/project/stack/timeline data. */
@@ -112,6 +123,7 @@ export interface SiteCopy {
   contactLinks: ContactLinkLabels;
   form: FormCopy;
   responseCard: ResponseCardCopy;
+  notFound: NotFoundCopy;
   footerLine: string;
 }
 

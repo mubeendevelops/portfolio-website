@@ -7,7 +7,9 @@ export function MetadataCard() {
     { label: SITE.aboutLabels.name, value: PROFILE.name },
     { label: SITE.aboutLabels.role, value: PROFILE.role },
     { label: SITE.aboutLabels.stack, value: PROFILE.stack },
-    ...(PROFILE.location !== null ? [{ label: SITE.aboutLabels.location, value: PROFILE.location }] : []),
+    ...(PROFILE.location !== null
+      ? [{ label: SITE.aboutLabels.location, value: PROFILE.location }]
+      : []),
   ];
 
   return (

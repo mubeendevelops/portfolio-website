@@ -11,13 +11,15 @@
   --trace-border: #262626; /* hairline borders */
   --trace-accent: #f59e0b; /* amber — primary accent, focus rings, active spans */
   --trace-accent-dim: #b45309; /* amber for larger fills */
-  --trace-meta: #64748b; /* slate — metadata labels, connectors */
+  --trace-meta: #7f8ea3; /* slate — metadata labels, connectors. 5.4:1+ on all surfaces (was #64748b, failed AA at 3.96:1) */
   --trace-text: #e5e5e5; /* body text */
   --trace-text-muted: #9ca3af; /* secondary text — never darker than this */
   --status-running: #22c55e;
   --status-progress: #f59e0b;
-  --status-planned: #64748b;
+  --status-planned: #7f8ea3; /* matches --trace-meta so both stay AA-compliant */
   --status-complete: #38bdf8;
+  /* Mirrors DURATIONS.micro in lib/motion.ts — CSS hover transitions can't read TS. */
+  --trace-duration-micro: 120ms;
 }
 
 html {

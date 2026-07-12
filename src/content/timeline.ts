@@ -35,7 +35,8 @@ export const TIMELINE_COLUMNS: TimelineColumn[] = [
       },
       {
         title: 'Deploy all projects',
-        detail: 'DispatchGo and ConvoyChat live on Railway with real health checks behind their status chips.',
+        detail:
+          'DispatchGo and ConvoyChat live on Railway with real health checks behind their status chips.',
         status: 'planned',
       },
     ],

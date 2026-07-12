@@ -31,6 +31,8 @@ export const SITE: SiteCopy = {
     github: 'GitHub',
     linkedin: 'LinkedIn',
     resume: 'Résumé',
+    copyEmail: 'Copy email',
+    copyEmailDone: 'Copied',
   },
   form: {
     nameLabel: 'Name',
@@ -41,12 +43,20 @@ export const SITE: SiteCopy = {
     errorWithEmail: 'Request failed — email me directly instead:',
     errorWithoutEmail:
       "Request failed — this form isn't connected to a delivery service yet. Direct contact links land here soon.",
+    /* To go live: create a form at formspree.io and paste its URL here,
+       e.g. 'https://formspree.io/f/<form-id>'. Nothing else needs to change. */
     endpoint: null,
   },
   responseCard: {
     statusLine: '202 Accepted',
     heading: 'Message queued.',
     body: "Thanks for writing — I read everything that lands here and I'll get back to you soon.",
+  },
+  notFound: {
+    code: '404',
+    message: 'span not found — trace incomplete',
+    body: "This page doesn't exist. Whatever linked you here pointed somewhere that never ran.",
+    linkLabel: 'Back to home',
   },
   footerLine: 'end of trace — thanks for reading',
 };

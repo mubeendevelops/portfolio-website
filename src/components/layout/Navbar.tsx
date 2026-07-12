@@ -1,13 +1,16 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { LazyMotion, m } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 import { NAV_ITEMS, SITE } from '@/content/site';
+import { fadeVariants, loadMotionFeatures, useReducedMotion } from '@/lib/motion';
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -37,7 +40,10 @@ export function Navbar() {
         aria-label={SITE.navLabel}
         className="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-4 sm:px-6"
       >
-        <a href="#trace" className="inline-flex min-h-11 items-center font-mono text-sm text-trace-accent">
+        <a
+          href="#trace"
+          className="inline-flex min-h-11 items-center font-mono text-sm text-trace-accent"
+        >
           {SITE.identityMark}
         </a>
         <ul className="hidden items-center gap-1 md:flex">
@@ -64,21 +70,31 @@ export function Navbar() {
           <span className="sr-only">{menuOpen ? SITE.menuClose : SITE.menuOpen}</span>
         </button>
       </nav>
-      <div id="mobile-menu" hidden={!menuOpen} className="fixed inset-x-0 bottom-0 top-14 bg-trace-bg md:hidden">
-        <ul className="flex flex-col gap-2 px-6 py-8">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="flex min-h-11 items-center font-mono text-lg text-trace-text"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <LazyMotion features={loadMotionFeatures} strict>
+        <m.div
+          id="mobile-menu"
+          initial={false}
+          animate={menuOpen ? 'visible' : 'hidden'}
+          variants={fadeVariants(reducedMotion)}
+          className={`fixed inset-x-0 bottom-0 top-14 bg-trace-bg md:hidden ${
+            menuOpen ? '' : 'pointer-events-none'
+          }`}
+        >
+          <ul className="flex flex-col gap-2 px-6 py-8">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex min-h-11 items-center font-mono text-lg text-trace-text"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </m.div>
+      </LazyMotion>
     </header>
   );
 }
