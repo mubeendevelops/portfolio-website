@@ -34,3 +34,9 @@ body {
   background-color: var(--trace-bg);
   color: var(--trace-text);
 }
+
+/* One global focus ring (claude.md §9.2) so no component can forget it. */
+:focus-visible {
+  outline: 2px solid var(--trace-accent);
+  outline-offset: 2px;
+}

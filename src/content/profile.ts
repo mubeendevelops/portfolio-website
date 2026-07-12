@@ -1,4 +1,4 @@
-import type { NavItem, Profile } from '@/lib/types';
+import type { Profile } from '@/lib/types';
 
 export const PROFILE: Profile = {
   name: 'Mubeen',
@@ -17,11 +17,3 @@ export const PROFILE: Profile = {
     resume: null,
   },
 };
-
-export const NAV_ITEMS: NavItem[] = [
-  { label: 'Projects', href: '#projects' },
-  { label: 'About', href: '#about' },
-  { label: 'Stack', href: '#stack' },
-  { label: 'Timeline', href: '#timeline' },
-  { label: 'Contact', href: '#contact' },
-];

@@ -52,6 +52,69 @@ export interface NavItem {
   href: string;
 }
 
+export interface SectionTitles {
+  projects: string;
+  about: string;
+  stack: string;
+  timeline: string;
+  contact: string;
+}
+
+export interface AboutLabels {
+  name: string;
+  role: string;
+  stack: string;
+  location: string;
+  status: string;
+}
+
+export interface ContactLinkLabels {
+  email: string;
+  github: string;
+  linkedin: string;
+  resume: string;
+}
+
+export interface FormCopy {
+  nameLabel: string;
+  emailLabel: string;
+  messageLabel: string;
+  submitLabel: string;
+  submittingLabel: string;
+  /** Error shown when a direct email exists — the address is appended. */
+  errorWithEmail: string;
+  /** Error shown while profile links are still null. */
+  errorWithoutEmail: string;
+  /** Form service URL (Formspree/Web3Forms, wired in Milestone 2). */
+  endpoint: string | null;
+}
+
+export interface ResponseCardCopy {
+  statusLine: string;
+  heading: string;
+  body: string;
+}
+
+/** Every visitor-facing string that isn't profile/project/stack/timeline data. */
+export interface SiteCopy {
+  identityMark: string;
+  skipToContent: string;
+  navLabel: string;
+  menuOpen: string;
+  menuClose: string;
+  sections: SectionTitles;
+  decisionsHeading: string;
+  stackListLabel: string;
+  githubLabel: string;
+  demoLabel: string;
+  aboutLabels: AboutLabels;
+  contactIntro: string;
+  contactLinks: ContactLinkLabels;
+  form: FormCopy;
+  responseCard: ResponseCardCopy;
+  footerLine: string;
+}
+
 export interface ProfileLinks {
   github: string | null;
   linkedin: string | null;
