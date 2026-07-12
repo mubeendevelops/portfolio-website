@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens — the single source of truth (claude.md §7).
+   Never use a raw hex in a component: if a color isn't a token, it doesn't exist. */
+:root {
+  --trace-bg: #0a0a0a; /* page background */
+  --trace-surface: #111111; /* span rows, cards */
+  --trace-surface-hover: #161616;
+  --trace-border: #262626; /* hairline borders */
+  --trace-accent: #f59e0b; /* amber — primary accent, focus rings, active spans */
+  --trace-accent-dim: #b45309; /* amber for larger fills */
+  --trace-meta: #64748b; /* slate — metadata labels, connectors */
+  --trace-text: #e5e5e5; /* body text */
+  --trace-text-muted: #9ca3af; /* secondary text — never darker than this */
+  --status-running: #22c55e;
+  --status-progress: #f59e0b;
+  --status-planned: #64748b;
+  --status-complete: #38bdf8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--trace-bg);
+  color: var(--trace-text);
+}
